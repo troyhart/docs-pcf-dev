@@ -1,7 +1,7 @@
 ---
-breadcrumb: PCF Dev Documentation
+breadcrumb: PAS Dev Documentation
 title: Frequently Asked Questions
-owner: PCF Dev
+owner: PAS Dev
 ---
 
 ## <a id="ssl_cert"></a> Why do I receive a "Invalid SSL Cert" error?
@@ -14,33 +14,33 @@ Invalid SSL Cert for api.local.pcfdev.io
 TIP: Use 'cf api --skip-ssl-validation' to continue with an insecure API endpoint
 </pre>
 
-PCF Dev comes with a self-signed SSL certificate for its API. The self-signed SSL certificate causes an `Invalid SSL Cert` error when using the cf CLI. To avoid the error, use the `--skip-ssl-validation` option.
+PAS Dev comes with a self-signed SSL certificate for its API. The self-signed SSL certificate causes an `Invalid SSL Cert` error when using the cf CLI. To avoid the error, use the `--skip-ssl-validation` option.
 
 
 
-## <a id="host"></a> How can I connect apps running in PCF Dev to services running on my workstation?
+## <a id="host"></a> How can I connect apps running in PAS Dev to services running on my workstation?
 
-PCF Dev provides a special hostname for addressing the host from inside of application containers.
-If the PCF Dev system domain is `local.pcfdev.io`, then the host will be routable at `host.pcfdev.io`.
+PAS Dev provides a special hostname for addressing the host from inside of application containers.
+If the PAS Dev system domain is `local.pcfdev.io`, then the host will be routable at `host.pcfdev.io`.
 If the system domain is `local2.pcfdev.io`, the host will be routable at `host2.pcfdev.io`, and so on.
 Services running on the host must be listening on all network interfaces (not just `localhost`) for apps to access them.
 
 <p class="note"><strong>Note</strong>: Using <code>localhost</code> inside of app containers will not refer to your workstation.</p>
 
-## <a id="memory"></a> How can I customize the memory and CPU count used by the PCF Dev VM?
+## <a id="memory"></a> How can I customize the memory and CPU count used by the PAS Dev VM?
 
-By default, PCF Dev tries to allocate half of the memory available on your host machine, with a minimum of 3GB and a maximum of 4GB.
+By default, PAS Dev tries to allocate half of the memory available on your host machine, with a minimum of 3GB and a maximum of 4GB.
 
 To change the allocated memory, run the following command, replacing `NEW-ALLOCATED-MEMORY` with the amount of memory you want to allocate in megabytes:
 <pre class="terminal">$ cf dev start -m NEW-ALLOCATED-MEMORY</pre>
 
-By default, PCF Dev tries to use all physical, non-hyperthreaded host cores. To change this setting, run the following command, replacing DESIRED-NUMBER-OF-CORES with the number of processor cores PCF Dev should use:
+By default, PAS Dev tries to use all physical, non-hyperthreaded host cores. To change this setting, run the following command, replacing DESIRED-NUMBER-OF-CORES with the number of processor cores PAS Dev should use:
 <pre class="terminal">$ cf dev start -c DESIRED-NUMBER-OF-CORES</pre>
 
-## <a id="security_groups"></a> How are Application Security Groups (ASGs) configured in PCF Dev?
+## <a id="security_groups"></a> How are Application Security Groups (ASGs) configured in PAS Dev?
 
-Unlike PCF, PCF Dev allows applications to access all private address ranges without the need for additional ASGs.
-This is because PCF Dev is considered a trusted, local environment.
+Unlike Pivotal Application Service (PAS), PAS Dev allows applications to access all private address ranges without the need for additional ASGs.
+This is because PAS Dev is considered a trusted, local environment.
 You can remove the `all_pcfdev` security group:
 
 <pre class='terminal'>
